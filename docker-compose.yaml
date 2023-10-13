@@ -1,7 +1,6 @@
 services:
 
   nginx:
-    container_name: nginxphp
     image: nginx
     ports:
       - 80:80
@@ -15,7 +14,6 @@ services:
       - mysql
 
   phpfpm:
-    container_name: phpfpm
     build: ./images/php
     volumes:
       - ./app:/var/www/public_html
@@ -25,7 +23,6 @@ services:
       - mysql
     
   mysql:
-    container_name: mysql
     image: mysql
     volumes:
       - ./mysql-data:/var/lib/mysql   
@@ -38,7 +35,6 @@ services:
       - phpapp
 
   phpmyadmin:
-    container_name: phpmyadmin
     image: phpmyadmin
     ports:
       - 1500:80
